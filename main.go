@@ -11,6 +11,8 @@ func main() {
 	app := fiber.New()
 	app.Use(logger.New())
 
+	// binanceFutures := binance.NewBinanceFutures()
+	// fexchanges := exchanges.NewMarketFutures(binanceFutures)
 	connectionController := controllers.NewHealthController()
 	connectionController.Route(app)
 
