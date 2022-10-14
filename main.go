@@ -1,7 +1,7 @@
 package main
 
 import (
-	"trading-bot/internal/application"
+	applications "trading-bot/internal/applications"
 	"trading-bot/internal/controllers"
 	"trading-bot/internal/exchanges"
 	binance "trading-bot/internal/exchanges/binance/futures"
@@ -13,7 +13,7 @@ import (
 func main() {
 	// Configuration
 	app := fiber.New()
-	config := application.NewConfig()
+	config := applications.NewConfig()
 	app.Use(logger.New())
 
 	// Exchanges

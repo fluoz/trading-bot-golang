@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"trading-bot/internal/application"
+	applications "trading-bot/internal/applications"
 )
 
 type clientFutures struct {
-	config *application.Config
+	config *applications.Config
 }
 
-func NewClientFutures(config *application.Config) Futures {
+func NewClientFutures(config *applications.Config) Futures {
 	return &clientFutures{config: config}
 }
 
