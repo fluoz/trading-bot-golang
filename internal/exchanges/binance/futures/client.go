@@ -2,20 +2,25 @@ package binance
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"net/http"
+	"trading-bot/internal/application"
 )
 
-type binanceFutures struct {
+type clientFutures struct {
+	config *application.Config
 }
 
-func NewBinanceFutures() Futures {
-	return &binanceFutures{}
+func NewClientFutures(config *application.Config) Futures {
+	return &clientFutures{config: config}
 }
 
-func (b *binanceFutures) Connection(ctx context.Context) error {
+func (b *clientFutures) Connection(ctx context.Context) error {
 
-	req, err := http.NewRequest(http.MethodGet, "/fapi/v1/ping", nil)
+	url := fmt.Sprintf("%s%s", b.config.Exchanges.Binance.Futures.BaseUrl, b.config.Exchanges.Binance.Futures.PathConnectivity)
+
+	req, err := http.NewRequest(http.MethodGet, url, nil)
 
 	if err != nil {
 		return err
