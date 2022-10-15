@@ -74,5 +74,6 @@ type (
 	Futures struct {
 		BaseUrl          string `yaml:"base_url" json:"base_url"`
 		PathConnectivity string `yaml:"path_connectivity" json:"path_connectivity"`
+		PathServerTime   string `yaml:"path_server_time" json:"path_server_time"`
 	}
 )
