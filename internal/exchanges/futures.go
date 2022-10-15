@@ -16,10 +16,7 @@ func NewMarketFutures(binance binance.Futures) Futures {
 func (e *marketFutures) Connection(ctx context.Context, exchange string) error {
 	switch exchange {
 	case exchangeBinance:
-		err := e.binance.Connection(ctx)
-		if err != nil {
-			return err
-		}
+		return e.binance.Connection(ctx)
 	}
 	return nil
 }
